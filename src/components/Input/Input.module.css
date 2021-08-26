@@ -1,0 +1,26 @@
+.Input {
+    margin-top: 5px;
+    padding: 5px 14px;
+    width: 175px;
+    height: 33px;
+    background: #FFFFFF;
+    border-radius: 3px;
+    color: #4D4D4D;
+    font-size: 15px;
+    font-weight: normal;
+    border: 1px solid transparent;
+    outline: none !important;
+}
+
+.Input::placeholder {
+    color: #8292A8;
+}
+
+.Input:hover {
+    border: 1px solid #CCCCCC;
+    cursor: text;
+}
+
+.Input:focus {
+    border: 1px solid #475CAF !important;
+}

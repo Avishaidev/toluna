@@ -1,0 +1,44 @@
+.App {
+
+}
+
+.Content {
+    padding: 60px 20%;
+    background: #f8f8f9;
+}
+
+.Footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 70px;
+    background: #FFFFFF;
+    box-shadow: 0 6px 17px 2px rgba(0, 0, 0, 0.040483);
+}
+
+.TolunaLogo {
+
+}
+
+.FooterButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+}
+
+@media only screen and (max-width: 768px) {
+    .Content {
+        padding: 16px 12px;
+    }
+
+    .Footer {
+        flex-direction: column-reverse;
+        height: 105px;
+    }
+
+    .FooterButtons {
+        justify-content: space-around;
+        width: 100%;
+    }
+}

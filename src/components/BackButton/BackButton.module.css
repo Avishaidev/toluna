@@ -1,0 +1,37 @@
+.BackButton {
+    display: inline-block;
+    padding: 2px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: linear-gradient(141.99deg, #4FF5AC -15.7%, #3693EB 100%);
+    background-clip: padding-box, border-box, content-box;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.215035);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.BackButton:hover {
+    padding: 3px;
+}
+
+.BackButton:hover .ButtonContent {
+    background: #F8F8F9;
+}
+
+.Icon {
+    width: 18px;
+    height: 23px;
+    fill: url(#gradient-color);
+}

@@ -1,0 +1,28 @@
+.QuestionTitle {
+    padding: 23px 14px 23px 18px;
+    background: #FFFFFF;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.Textarea {
+    padding: 5px 10px;
+    width: 100%;
+    min-height: 79px;
+    border: 1px solid transparent;
+    resize: none;
+    color: #475CAF;
+    font-size: 21px;
+    font-weight: normal;
+    border-radius: 3px;
+    outline: none !important;
+}
+
+.QuestionTitle:hover .Textarea {
+    border: 1px solid #CCCCCC;
+    cursor: text;
+}
+
+.Textarea:focus {
+    border: 1px solid #475CAF !important;
+}

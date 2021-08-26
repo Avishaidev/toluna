@@ -1,0 +1,39 @@
+.Header {
+    display: flex;
+    padding: 0 20%;
+    position: relative;
+    align-items: center;
+    border-bottom: 4px solid #D8D8D8;
+}
+
+.Header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 4px;
+    width: 40%;
+    background: linear-gradient(92.69deg, #4FF5AC 20.15%, #3693EB 104.09%);
+}
+
+.Img {
+    display: inline-block;
+    width: 71px;
+    height: 71px;
+}
+
+.Title {
+    margin-left: 19px;
+    font-size: 21px;
+    color: #475CAF;
+}
+
+@media only screen and (max-width: 768px) {
+    .Header {
+        padding: 0;
+    }
+
+    .Title {
+        margin-left: 18px;
+    }
+}

@@ -1,0 +1,46 @@
+.Answer {
+    position: relative;
+    margin: 0 15px 25px;
+    width: 218px;
+    height: 226px;
+    background: #FFFFFF;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    flex: 0 0 25%;
+}
+
+.Answer:not(:nth-child(4n+1)) {
+    margin-right: calc( (100% - (25% * 4)) / 20 );
+}
+
+.CheckboxContainer{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    height: 32px;
+    width: 32px;
+    z-index: 10;
+}
+
+.TrashContainer {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    z-index: 10;
+}
+
+.ImgContainer {
+    display: flex;
+    height: 160px;
+    border-bottom: 1px solid #E3E1E1;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    .Answer {
+        flex: 0 0 45%;
+        margin: 0 0 12px;
+    }
+}

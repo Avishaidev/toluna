@@ -1,0 +1,71 @@
+.Checkbox {
+    position: relative;
+}
+
+.Label {
+    display: block;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    clear: both;
+}
+
+.Input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.Input:checked ~ .Rectangular {
+    background-color: #475CAF;
+    opacity:1;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.Rectangular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 32px;
+    width: 32px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    border: 1px solid #E3E1E1;
+}
+
+.Rectangular:hover {
+    border: 3px solid #E3E1E1;
+}
+
+.Rectangular::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0;
+    width: 0;
+    border-radius: 5px;
+    border: solid #FFFFFF;
+    border-width: 0 3px 3px 0;
+    transform: rotate(0deg) scale(0);
+    opacity:1;
+    transition: all 0.3s ease-out;
+}
+
+.Input:checked ~ .Rectangular::after {
+    transform: rotate(45deg) scale(1);
+    opacity:1;
+    left: 11px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    background-color: transparent;
+    border-radius: 0;
+}

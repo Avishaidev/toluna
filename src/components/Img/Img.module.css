@@ -1,0 +1,43 @@
+.Img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.HasImage {
+    box-shadow: none;
+}
+
+.Img:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(71, 92, 175, 0.36);
+    border-radius: 5px;
+}
+
+.Image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    z-index: 8;
+}
+
+.FileInput {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    cursor: pointer;
+}

@@ -4,7 +4,7 @@ import {AnswerInterface} from "../../types/AnswerInterface";
 import Img from "../Img/Img";
 import Input from "../Input/Input";
 import Checkbox from "../Checkbox/Checkbox";
-import {addAnswer, removeAnswer} from "../../app/questionRedeucer";
+import {addAnswer, removeAnswer, updateAnswerText} from "../../app/questionRedeucer";
 import {useAppDispatch} from "../../app/hooks";
 import TrashButton from "../TrashButton/TrashButton";
 import {guid} from "../../app/questionAPI";
@@ -15,8 +15,13 @@ interface AnswerProps {
 }
 
 const Answer:React.FC<AnswerProps> = ({ answer , isNew}) => {
+    const emptyAnswer:AnswerInterface = {
+       text: '',
+       imageURL: '',
+       id: guid()
+    };
     const itemRef = useRef() as React.MutableRefObject<HTMLDivElement>;
-    const [newAnswer, setNewAnswer] = React.useState({text: '', imageURL: '', id: guid()});
+    const [newAnswer, setNewAnswer] = React.useState(isNew ? emptyAnswer : {...answer});
     const dispatch = useAppDispatch();
 
     const handleInputChange = (value:string) => {
@@ -24,6 +29,10 @@ const Answer:React.FC<AnswerProps> = ({ answer , isNew}) => {
             ...prevState,
             text: value
         }));
+
+        if (!isNew) {
+            dispatch(updateAnswerText({text: value, id: answer?.id}));
+        }
     }
 
     const handleKeyDown = (event:any):void => {
@@ -39,7 +48,7 @@ const Answer:React.FC<AnswerProps> = ({ answer , isNew}) => {
                 return;
             }
 
-            dispatch(addAnswer(newAnswer));
+            dispatch(addAnswer(newAnswer as AnswerInterface));
 
             setNewAnswer(({
                 id: guid(),
@@ -77,7 +86,7 @@ const Answer:React.FC<AnswerProps> = ({ answer , isNew}) => {
             }
 
             <div className={styles.ImgContainer}>
-                <Img imageUrl={ isNew ? newAnswer.imageURL: answer?.imageURL } handleImageChange={handleImageChanged}/>
+                <Img allowSelectImage={isNew === true} imageUrl={ isNew ? newAnswer.imageURL: answer?.imageURL } handleImageChange={handleImageChanged}/>
             </div>
             <div className={styles.InputContainer}>
                 <Input initValue={ isNew ? newAnswer.text : answer?.text } handleKeyDown={handleKeyDown} handleInputChange={handleInputChange} />

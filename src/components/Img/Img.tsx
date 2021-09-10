@@ -4,10 +4,11 @@ import imgPlaceholder from '../../assets/imgs/img-placeholder.png';
 
 interface ImgProps {
     imageUrl?:string,
+    allowSelectImage: boolean,
     handleImageChange?(imageUrl:string): void
 }
 
-const Img:React.FC<ImgProps> = ({ imageUrl = '' , handleImageChange}) => {
+const Img:React.FC<ImgProps> = ({ imageUrl = '' , handleImageChange, allowSelectImage}) => {
     const [img, setImg] = React.useState(imageUrl);
 
     const imageChange = (event:React.ChangeEvent<HTMLInputElement>) => {
@@ -52,8 +53,12 @@ const Img:React.FC<ImgProps> = ({ imageUrl = '' , handleImageChange}) => {
     }, [imageUrl, setImg]);
     return (
         <div className={img ? styles.Img + ' ' + styles.HasImage : styles.Img}>
-            <img alt={'select file'} src={img ? img : imgPlaceholder} className={styles.Image} />
-            <input type={'file'} accept={'image/*'} className={styles.FileInput} onChange={imageChange}/>
+            <img alt={'answer'} src={img ? img : imgPlaceholder} className={styles.Image} />
+            {
+                allowSelectImage &&
+                    <input type={'file'} accept={'image/*'} className={styles.FileInput} onChange={imageChange}/>
+            }
+
         </div>
     )
 };

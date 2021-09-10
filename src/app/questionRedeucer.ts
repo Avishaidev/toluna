@@ -26,6 +26,7 @@ export const questionText = (state: RootState) => state.data.question.text;
 export const answersData = (state: RootState) => state.data.answers;
 
 export const addAnswer = createAction<AnswerInterface>('answer/add')
+export const updateAnswerText = createAction<any>('answer/updateText')
 export const removeAnswer = createAction<string>('answer/remove')
 export const updateQuestion = createAction<string>('question/update')
 
@@ -50,6 +51,14 @@ export const questionReducer = createReducer(initialState, (builder) => {
         })
         .addCase(addAnswer, (state, action) => {
             state.data.answers.push(action.payload);
+        })
+        .addCase(updateAnswerText, (state, action) => {
+            for(let i = 0; i < state.data.answers.length; ++i) {
+                if (state.data.answers[i].id === action.payload.id) {
+                    state.data.answers[i].text = action.payload.text;
+                    break;
+                }
+            }
         })
         .addCase(removeAnswer, (state, action) => {
             state.data.answers = state.data.answers.filter((answer) => answer.id !== action.payload);
